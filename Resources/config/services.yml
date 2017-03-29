@@ -1,0 +1,4 @@
+services:
+#    lch_components.example:
+#        class: Lch\ComponentsBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
