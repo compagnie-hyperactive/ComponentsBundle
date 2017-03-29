@@ -1,4 +1,12 @@
+parameters:
+  lch.components.list.twig.extension.class: 'Lch\ComponentsBundle\Twig\Extension\LchListExtension'
+
 services:
-#    lch_components.example:
-#        class: Lch\ComponentsBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+  # Twig Extensions
+  lch.components.list.twig_extension:
+    class: "%lch.components.list.twig.extension.class%"
+    public: false
+    arguments: ["@doctrine.orm.entity_manager", '@session', "@twig", "@event_dispatcher", "@security.token_storage", '@translator']
+    tags:
+      - { name: twig.extension }
+    lazy: true
