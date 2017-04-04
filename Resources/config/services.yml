@@ -1,5 +1,6 @@
 parameters:
   lch.components.list.twig.extension.class: 'Lch\ComponentsBundle\Twig\Extension\LchListExtension'
+  lch.components.tools.twig.extension.class: 'Lch\ComponentsBundle\Twig\Extension\LchComponentsToolsExtension'
 
 services:
   # Twig Extensions
@@ -7,6 +8,14 @@ services:
     class: "%lch.components.list.twig.extension.class%"
     public: false
     arguments: ["@doctrine.orm.entity_manager", '@session', "@twig", "@event_dispatcher", "@security.token_storage", '@translator']
+    tags:
+      - { name: twig.extension }
+    lazy: true
+
+  lch.components.tools.twig_extension:
+    class: "%lch.components.tools.twig.extension.class%"
+    public: false
+    #arguments: ["@doctrine.orm.entity_manager", '@session', "@twig", "@event_dispatcher", "@security.token_storage", '@translator']
     tags:
       - { name: twig.extension }
     lazy: true
