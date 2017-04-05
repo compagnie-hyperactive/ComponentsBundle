@@ -19,6 +19,7 @@ class AdminIcons
     const EYE_OPEN          = "glyphicon glyphicon-eye-open";
     const EYE_CLOSED        = "glyphicon glyphicon-eye-close";
     const HAMBURGER         = "glyphicon glyphicon-menu-hamburger";
+    const HDD               = 'glyphicon glyphicon-hdd';
     const PENCIL            = "glyphicon glyphicon-pencil";
     const REPEAT            = "glyphicon glyphicon-repeat";
     const SCREENSHOT        = "glyphicon glyphicon-screenshot";
