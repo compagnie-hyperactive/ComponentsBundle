@@ -21,6 +21,7 @@ class AdminIcons
     const HAMBURGER         = "glyphicon glyphicon-menu-hamburger";
     const HDD               = 'glyphicon glyphicon-hdd';
     const PENCIL            = "glyphicon glyphicon-pencil";
+    const REMOVE            = "glyphicon glyphicon-remove";
     const REPEAT            = "glyphicon glyphicon-repeat";
     const SCREENSHOT        = "glyphicon glyphicon-screenshot";
     const SIGNAL            = "glyphicon glyphicon-signal";

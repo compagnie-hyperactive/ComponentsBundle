@@ -40,9 +40,9 @@
         {% if(options.textEmpty is defined) %}
             {% set text = options.textEmpty|trans %}
         {% else %}
-            {% set text = "admin.list.empty"|trans %}
+            {% set text = "lch.components.list.empty"|trans %}
         {% endif %}
-        <p class="text-center">{{ text }}</p>
+        <p class="text-center alert alert-warning"><i class="glyphicon glyphicon-alert"></i>{{ text }}</p>
     {% endif %}
     <div class="row admin-list-after">
         {{ renderAfterList(records, options) }}

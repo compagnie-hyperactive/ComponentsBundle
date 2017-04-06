@@ -13,7 +13,7 @@ use Lch\ComponentsBundle\Exception\ActionTypeNotValidException;
 
 class Action
 {
-    const BUTTON = "button";
+    const FORM = "form";
     const LINK = "link";
     /**
      * @var string $name
@@ -32,6 +32,14 @@ class Action
      */
     private $routeParameters;
     /**
+     * @var array $formParameters
+     */
+    private $formParameters;
+    /**
+     * @var string $method
+     */
+    private $method;
+    /**
      * @var array $attributes
      */
     private $attributes;
@@ -44,10 +52,46 @@ class Action
      */
     private $type;
 
-
     public function __construct($type = self::LINK) {
         $this->setType($type);
     }
+
+    /**
+     * @return string
+     */
+    public function getMethod()
+    {
+        return $this->method;
+    }
+
+    /**
+     * @param string $method
+     * @return Action
+     */
+    public function setMethod(string $method)
+    {
+        $this->method = $method;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getFormParameters()
+    {
+        return $this->formParameters;
+    }
+
+    /**
+     * @param array $formParameters
+     * @return Action
+     */
+    public function setFormParameters(array $formParameters)
+    {
+        $this->formParameters = $formParameters;
+        return $this;
+    }
+
     /**
      * @return string
      */
@@ -176,8 +220,8 @@ class Action
     }
 
     private function checkType($type) {
-        if($type !== self::BUTTON && $type !== self::LINK) {
-            throw new ActionTypeNotValidException('The action type is not valid : either LINK or BUTTON accepted');
+        if($type !== self::FORM && $type !== self::LINK) {
+            throw new ActionTypeNotValidException('The action type is not valid : either LINK or FORM accepted');
         }
     }
 }
