@@ -25,5 +25,6 @@ class AdminIcons
     const REPEAT            = "glyphicon glyphicon-repeat";
     const SCREENSHOT        = "glyphicon glyphicon-screenshot";
     const SIGNAL            = "glyphicon glyphicon-signal";
+    const TAGS             = "glyphicon glyphicon-tags";
     const TASKS             = "glyphicon glyphicon-tasks";
 }
