@@ -22,6 +22,7 @@ class AdminIcons
     const HDD               = 'glyphicon glyphicon-hdd';
     const HOME              = 'glyphicon glyphicon-home';
     const PENCIL            = "glyphicon glyphicon-pencil";
+    const PICTURE           = "glyphicon glyphicon-picture";
     const REMOVE            = "glyphicon glyphicon-remove";
     const REPEAT            = "glyphicon glyphicon-repeat";
     const SCREENSHOT        = "glyphicon glyphicon-screenshot";
