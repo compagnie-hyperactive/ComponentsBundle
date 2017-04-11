@@ -18,6 +18,7 @@ class AdminIcons
     const EQUALIZER         = "glyphicon glyphicon-equalizer";
     const EYE_OPEN          = "glyphicon glyphicon-eye-open";
     const EYE_CLOSED        = "glyphicon glyphicon-eye-close";
+    const FILE              = 'glyphicon glyphicon-file';
     const HAMBURGER         = "glyphicon glyphicon-menu-hamburger";
     const HDD               = 'glyphicon glyphicon-hdd';
     const HOME              = 'glyphicon glyphicon-home';
