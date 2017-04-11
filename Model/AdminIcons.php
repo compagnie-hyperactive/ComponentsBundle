@@ -20,11 +20,13 @@ class AdminIcons
     const EYE_CLOSED        = "glyphicon glyphicon-eye-close";
     const HAMBURGER         = "glyphicon glyphicon-menu-hamburger";
     const HDD               = 'glyphicon glyphicon-hdd';
+    const HOME              = 'glyphicon glyphicon-home';
     const PENCIL            = "glyphicon glyphicon-pencil";
     const REMOVE            = "glyphicon glyphicon-remove";
     const REPEAT            = "glyphicon glyphicon-repeat";
     const SCREENSHOT        = "glyphicon glyphicon-screenshot";
     const SIGNAL            = "glyphicon glyphicon-signal";
-    const TAGS             = "glyphicon glyphicon-tags";
+    const TAGS              = "glyphicon glyphicon-tags";
     const TASKS             = "glyphicon glyphicon-tasks";
+    const USER              = "glyphicon glyphicon-user";
 }
