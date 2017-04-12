@@ -11,6 +11,8 @@ namespace Lch\ComponentsBundle\Model;
 
 class AdminIcons
 {
+    const BLACKBOARD        = "glyphicon glyphicon-blackboard";
+    const CALENDAR          = "glyphicon glyphicon-calendar";
     const DASHBOARD         = "glyphicon glyphicon-dashboard";
     const DOWNLOAD_ALT      = "glyphicon glyphicon-download-alt";
     const DUPLICATE         = "glyphicon glyphicon-duplicate";
