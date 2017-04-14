@@ -13,6 +13,7 @@ class AdminIcons
 {
     const BLACKBOARD        = "glyphicon glyphicon-blackboard";
     const CALENDAR          = "glyphicon glyphicon-calendar";
+    const CREDIT_CARD       = "glyphicon glyphicon-credit-card";
     const DASHBOARD         = "glyphicon glyphicon-dashboard";
     const DOWNLOAD_ALT      = "glyphicon glyphicon-download-alt";
     const DUPLICATE         = "glyphicon glyphicon-duplicate";
