@@ -18,6 +18,7 @@ class AdminIcons
     const DOWNLOAD_ALT      = "glyphicon glyphicon-download-alt";
     const DUPLICATE         = "glyphicon glyphicon-duplicate";
     const EDIT              = "glyphicon glyphicon-edit";
+    const ENVELOPE          = "glyphicon glyphicon-envelope";
     const EQUALIZER         = "glyphicon glyphicon-equalizer";
     const EYE_OPEN          = "glyphicon glyphicon-eye-open";
     const EYE_CLOSED        = "glyphicon glyphicon-eye-close";
