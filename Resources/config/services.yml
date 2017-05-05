@@ -1,6 +1,8 @@
 parameters:
   lch.components.list.twig.extension.class: 'Lch\ComponentsBundle\Twig\Extension\LchListExtension'
   lch.components.tools.twig.extension.class: 'Lch\ComponentsBundle\Twig\Extension\LchComponentsToolsExtension'
+  lch.components.pagination.service.class: 'Lch\ComponentsBundle\Service\Pagination'
+  lch.components.pagination.max_results_per_page: 20
 
 services:
   # Twig Extensions
@@ -18,4 +20,9 @@ services:
     #arguments: ["@doctrine.orm.entity_manager", '@session', "@twig", "@event_dispatcher", "@security.token_storage", '@translator']
     tags:
       - { name: twig.extension }
+    lazy: true
+
+  lch.components.pagination.service:
+    class: '%lch.components.pagination.service.class%'
+    arguments: ['%lch.components.pagination.max_results_per_page%']
     lazy: true
