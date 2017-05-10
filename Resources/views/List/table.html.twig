@@ -45,6 +45,7 @@
         <p class="text-center alert alert-warning"><i class="glyphicon glyphicon-alert"></i>{{ text }}</p>
     {% endif %}
     <div class="row admin-list-after">
+        {{ include('@LchComponents/Pagination/pagination.html.twig') }}
         {{ renderAfterList(records, options) }}
     </div>
 </div>

@@ -22,7 +22,7 @@ class Pagination
     /**
      * @var int
      */
-    private $totalpageCount;
+    private $totalPageCount;
 
     /**
      * @var int
@@ -49,11 +49,11 @@ class Pagination
      */
     public function __construct(int $page, int $totalPageCount, int $maxResultsPerPage, string $route, array $routeParameters = []) {
         
-        if($page > $totalPageCount) {
-            throw new IncoherentPageDataException("Current page number is greater than total pages count.");
-        }
+//        if($page > $totalPageCount) {
+//            throw new IncoherentPageDataException("Current page number is greater than total pages count.");
+//        }
         $this->page = $page;
-        $this->totalpageCount = $totalPageCount;
+        $this->totalPageCount = $totalPageCount;
         $this->maxResultsPerPage = $maxResultsPerPage;
         $this->route = $route;
         $this->routeParameters = $routeParameters;
@@ -80,18 +80,18 @@ class Pagination
     /**
      * @return int
      */
-    public function getTotalpageCount()
+    public function getTotalPageCount()
     {
-        return $this->totalpageCount;
+        return $this->totalPageCount;
     }
 
     /**
-     * @param int $totalpageCount
+     * @param int $totalPageCount
      * @return Pagination
      */
-    public function setTotalpageCount($totalpageCount)
+    public function setTotalPageCount($totalPageCount)
     {
-        $this->totalpageCount = $totalpageCount;
+        $this->totalPageCount = $totalPageCount;
         return $this;
     }
 

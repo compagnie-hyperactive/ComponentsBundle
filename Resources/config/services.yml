@@ -3,6 +3,7 @@ parameters:
   lch.components.tools.twig.extension.class: 'Lch\ComponentsBundle\Twig\Extension\LchComponentsToolsExtension'
   lch.components.pagination.service.class: 'Lch\ComponentsBundle\Service\Pagination'
   lch.components.pagination.max_results_per_page: 20
+  lch.components.pagination.back.max_results_per_page: 2
 
 services:
   # Twig Extensions
