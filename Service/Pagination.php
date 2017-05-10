@@ -13,27 +13,26 @@ use Symfony\Component\HttpFoundation\Request;
 
 class Pagination
 {
-    /**
-     * @var int
-     */
-    private $maxResultsPerPage;
 
-    public function __construct(int $maxResultsPerPage) {
-        $this->maxResultsPerPage = $maxResultsPerPage;
+    /**
+     * Pagination constructor.
+     */
+    public function __construct() {
     }
 
     /**
      * @param int $totalEntityNumber
      * @param int $page
+     * @param int $maxResultsPerPage
      * @param string $route
      * @param array $routeParameters
      * @return PaginationObject
      */
-    public function getPagination(int $totalEntityNumber, int $page, string $route, array $routeParameters = []) {
+    public function getPagination(int $totalEntityNumber, int $page, int $maxResultsPerPage, string $route, array $routeParameters = []) {
         return new PaginationObject(
             $page,
-            ceil($totalEntityNumber / $this->maxResultsPerPage),
-            $this->maxResultsPerPage,
+            ceil($totalEntityNumber / $maxResultsPerPage),
+            $maxResultsPerPage,
             $route,
             $routeParameters
         );

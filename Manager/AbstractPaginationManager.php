@@ -54,6 +54,7 @@ abstract class AbstractPaginationManager
         $pagination = $this->pagination->getPagination(
             $totalItemCount,
             $page,
+            $maxPerPage,
             $route,
             $routeParams
         );
