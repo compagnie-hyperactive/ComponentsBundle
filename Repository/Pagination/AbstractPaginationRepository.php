@@ -15,6 +15,7 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
 
 abstract class AbstractPaginationRepository extends EntityRepository
 {
+    const ADMIN = "admin";
     /**
      * @param $alias
      * @return QueryBuilder

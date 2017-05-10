@@ -15,6 +15,8 @@ use Lch\ComponentsBundle\Event\RenderListRowEvent;
 use Lch\ComponentsBundle\Event\RenderPreHeaderEvent;
 use Lch\ComponentsBundle\Exception\MissingOptionException;
 use Doctrine\ORM\EntityManager;
+use Lch\ComponentsBundle\Manager\AbstractPaginationManager;
+use Lch\ComponentsBundle\Repository\Pagination\AbstractPaginationRepository;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher;
 use Symfony\Component\PropertyAccess\PropertyAccess;
@@ -154,6 +156,16 @@ class LchListExtension extends \Twig_Extension
                 throw new MissingOptionException("Option '{$option}' should be filled in renderList options array ({$explanation})");
             }
         }
+
+        // Check if pagination is set
+        if(is_array($records) && isset($records[AbstractPaginationManager::PAGINATION])) {
+            $pagination = $records[AbstractPaginationManager::PAGINATION];
+            $records = $records[AbstractPaginationManager::ITEMS];
+        } else {
+            $pagination = null;
+        }
+
+
         $listEvent = new RenderListEvent($records, $options, $this->tokenStorage->getToken());
         // Dispatch render list event
         $this->dispatcher->dispatch(
@@ -163,7 +175,11 @@ class LchListExtension extends \Twig_Extension
         $options = $listEvent->getOptions();
 
 
-        return $this->twig->render("LchComponentsBundle:List:table.html.twig", ['records' => $records, "options" => $options]);
+        return $this->twig->render("LchComponentsBundle:List:table.html.twig", [
+            'records' => $records,
+            'pagination' => $pagination,
+            "options" => $options
+        ]);
     }
 
     /**
