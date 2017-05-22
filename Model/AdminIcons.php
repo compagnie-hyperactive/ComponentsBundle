@@ -12,6 +12,7 @@ namespace Lch\ComponentsBundle\Model;
 class AdminIcons
 {
     const BLACKBOARD        = "glyphicon glyphicon-blackboard";
+    const BRIEFCASE         = "glyphicon glyphicon-briefcase";
     const CALENDAR          = "glyphicon glyphicon-calendar";
     const CREDIT_CARD       = "glyphicon glyphicon-credit-card";
     const DASHBOARD         = "glyphicon glyphicon-dashboard";
