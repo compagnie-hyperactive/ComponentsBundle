@@ -1,8 +1,8 @@
 {
   "name": "lch/components-bundle",
   "type": "symfony-bundle",
-  "description": "Symfony LchComponentsBundle",
-  "keywords": ["Common components to all LCH bundles"],
+  "description": "Common components to all LCH bundles",
+  "keywords": ["components list datagrid pagination"],
   "homepage": "https://github.com/compagnie-hyperactive/ComponentsBundle",
   "license": "MIT",
   "authors": [
