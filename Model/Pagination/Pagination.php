@@ -27,13 +27,15 @@ class Pagination
     /**
      * @var int
      */
+    private $totalEntityNumber;
+    /**
+     * @var int
+     */
     private $maxResultsPerPage;
-
     /**
      * @var string
      */
     private $route;
-
     /**
      * @var array
      */
@@ -42,21 +44,58 @@ class Pagination
     /**
      * Pagination constructor.
      * @param int $page
-     * @param int $totalPageCount
+     * @param int $totalEntityNumber
      * @param int $maxResultsPerPage
      * @param string $route
      * @param array $routeParameters
      */
-    public function __construct(int $page, int $totalPageCount, int $maxResultsPerPage, string $route, array $routeParameters = []) {
-        
+    public function __construct(int $page, int $totalEntityNumber, int $maxResultsPerPage, string $route, array $routeParameters = []) {
+
 //        if($page > $totalPageCount) {
 //            throw new IncoherentPageDataException("Current page number is greater than total pages count.");
 //        }
         $this->page = $page;
-        $this->totalPageCount = $totalPageCount;
+        $this->totalEntityNumber = $totalEntityNumber;
+        $this->totalPageCount = intval(ceil($totalEntityNumber / $maxResultsPerPage));
         $this->maxResultsPerPage = $maxResultsPerPage;
         $this->route = $route;
         $this->routeParameters = $routeParameters;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTotalEntityNumber()
+    {
+        return $this->totalEntityNumber;
+    }
+
+    /**
+     * @param int $totalEntityNumber
+     * @return Pagination
+     */
+    public function setTotalEntityNumber($totalEntityNumber)
+    {
+        $this->totalEntityNumber = $totalEntityNumber;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMaxResultsPerPage()
+    {
+        return $this->maxResultsPerPage;
+    }
+
+    /**
+     * @param int $maxResultsPerPage
+     * @return Pagination
+     */
+    public function setMaxResultsPerPage($maxResultsPerPage)
+    {
+        $this->maxResultsPerPage = $maxResultsPerPage;
+        return $this;
     }
 
     /**

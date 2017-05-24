@@ -31,7 +31,8 @@ class Pagination
     public function getPagination(int $totalEntityNumber, int $page, int $maxResultsPerPage, string $route, array $routeParameters = []) {
         return new PaginationObject(
             $page,
-            ceil($totalEntityNumber / $maxResultsPerPage),
+//            ceil($totalEntityNumber / $maxResultsPerPage),
+            $totalEntityNumber,
             $maxResultsPerPage,
             $route,
             $routeParameters
