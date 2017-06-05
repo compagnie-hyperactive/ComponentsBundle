@@ -14,6 +14,7 @@ class AdminIcons
     const BLACKBOARD        = "glyphicon glyphicon-blackboard";
     const BRIEFCASE         = "glyphicon glyphicon-briefcase";
     const CALENDAR          = "glyphicon glyphicon-calendar";
+    const CERTIFICATE       = "glyphicon glyphicon-certificate";
     const CREDIT_CARD       = "glyphicon glyphicon-credit-card";
     const DASHBOARD         = "glyphicon glyphicon-dashboard";
     const DOWNLOAD_ALT      = "glyphicon glyphicon-download-alt";
