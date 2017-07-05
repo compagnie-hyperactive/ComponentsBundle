@@ -28,6 +28,7 @@ class AdminIcons
     const HAMBURGER         = "glyphicon glyphicon-menu-hamburger";
     const HDD               = 'glyphicon glyphicon-hdd';
     const HOME              = 'glyphicon glyphicon-home';
+    const LIST_ALT          = "glyphicon glyphicon-list-alt";
     const PENCIL            = "glyphicon glyphicon-pencil";
     const PICTURE           = "glyphicon glyphicon-picture";
     const REMOVE            = "glyphicon glyphicon-remove";
