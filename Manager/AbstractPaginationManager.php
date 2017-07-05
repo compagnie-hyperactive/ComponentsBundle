@@ -60,7 +60,7 @@ abstract class AbstractPaginationManager
         );
 
         // Add pagination elements
-        $this->repository->addPaginationElements($mainQb, $page, $maxPerPage);
+        $pagination->addPaginationElements($mainQb, $page, $maxPerPage);
 
         $paginator = new Paginator($mainQb);
         return [

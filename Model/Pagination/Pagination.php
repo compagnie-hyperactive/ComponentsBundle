@@ -9,6 +9,7 @@
 namespace Lch\ComponentsBundle\Model\Pagination;
 
 
+use Doctrine\ORM\QueryBuilder;
 use Lch\ComponentsBundle\Exception\Pagination\IncoherentPageDataException;
 
 class Pagination
@@ -168,5 +169,34 @@ class Pagination
     {
         $this->routeParameters = $routeParameters;
         return $this;
+    }
+
+    /**
+     * @param QueryBuilder $qb
+     * @param int $page
+     * @param int $maxPerPage
+     * @return $this
+     */
+    public function addPaginationElements(QueryBuilder $qb, int $page, int $maxPerPage) {
+        return $qb
+            ->setFirstResult(($page-1) * $maxPerPage)
+            ->setMaxResults($maxPerPage)
+            ;
+    }
+
+    /**
+     * @param QueryBuilder $qb
+     * @param int $page
+     * @param int $maxPerPage
+     * @return Paginator
+     */
+    public function getListPaginated(QueryBuilder $qb, int $page, int $maxPerPage) {
+        $qb
+            ->setFirstResult(($page-1) * $maxPerPage)
+            ->setMaxResults($maxPerPage)
+        ;
+
+        $paginator = new Paginator($qb);
+        return $paginator;
     }
 }
