@@ -12,6 +12,7 @@ namespace Lch\ComponentsBundle\Model;
 class AdminIcons
 {
     const BLACKBOARD        = "glyphicon glyphicon-blackboard";
+    const BOOKMARK          = "glyphicon glyphicon-bookmark";
     const BRIEFCASE         = "glyphicon glyphicon-briefcase";
     const CALENDAR          = "glyphicon glyphicon-calendar";
     const CERTIFICATE       = "glyphicon glyphicon-certificate";
@@ -25,6 +26,7 @@ class AdminIcons
     const EYE_OPEN          = "glyphicon glyphicon-eye-open";
     const EYE_CLOSED        = "glyphicon glyphicon-eye-close";
     const FILE              = 'glyphicon glyphicon-file';
+    const FLOPPY_DISK       = 'glyphicon glyphicon-floppy-disk';
     const HAMBURGER         = "glyphicon glyphicon-menu-hamburger";
     const HDD               = 'glyphicon glyphicon-hdd';
     const HOME              = 'glyphicon glyphicon-home';
