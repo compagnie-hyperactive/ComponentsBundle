@@ -47,6 +47,7 @@ abstract class AbstractPaginationManager
 
         $totalItemCount = $paginationQuery
             ->select("count({$mainQb->getRootAliases()[0]})")
+            ->resetDqlPart("orderBy")
             ->getQuery()
             ->getSingleScalarResult()
         ;
