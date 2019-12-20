@@ -12,15 +12,18 @@ use Doctrine\ORM\QueryBuilder;
 trait SearchableEntityRepository
 {
     /**
-     * @param array $fields
-     * @param string $term
-     * @param string|null $language
+     * Used to search in like mode in entity fields
+     * @param array $fields the fields names wanted to be searched in
+     * @param string $term the term to be searched
+     * @param int|null $maxResults the batch size, if any.
+     * @param string|null $language if any, ISO code language to filter items on
      *
      * @return array
      */
     public function findByFulltextTerm(
         array $fields,
         string $term,
+        int $maxResults = null,
         string $language = null
     ): array {
         /** @var QueryBuilder $qb */
@@ -38,7 +41,9 @@ trait SearchableEntityRepository
         }
         $qb->setParameter('term', "%$term%");
 
-        $qb->setMaxResults(100);
+        if(null !== $maxResults) {
+            $qb->setMaxResults($maxResults);
+        }
 
         if (null !== $language && ! empty($language)) {
             $qb->andWhere('entity.language = :language');
@@ -51,6 +56,7 @@ trait SearchableEntityRepository
     /**
      * @param array $linkedEntities
      * @param string $term
+     * @param int|null $maxResults the batch size, if any.
      * @param string|null $language
      *
      * @return array
@@ -58,6 +64,7 @@ trait SearchableEntityRepository
     public function findByRelationEntity(
         array $linkedEntities,
         string $term,
+        int $maxResults = null,
         string $language = null
     ): array {
         /** @var QueryBuilder $qb */
@@ -71,11 +78,13 @@ trait SearchableEntityRepository
             $qb
                 ->join("entity.{$field}", $field)
                 ->addSelect($subFieldName)
-                ->orWhere($qb->expr()->like($subFieldName, ":term"));;
+                ->orWhere($qb->expr()->like($subFieldName, ":term"));
         }
         $qb->setParameter('term', "%$term%");
 
-        $qb->setMaxResults(100);
+        if(null !== $maxResults) {
+            $qb->setMaxResults($maxResults);
+        }
 
         if (null !== $language && ! empty($language)) {
             $qb->andWhere('entity.language = :language');
