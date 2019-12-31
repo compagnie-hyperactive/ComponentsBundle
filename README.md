@@ -5,13 +5,19 @@ This Symfony bundle provides all necessary bricks needed accross other
 
 ## Installation
 
-`composer require lch/components-bundle "^1.2.1"`
+`composer require lch/components-bundle "^1.2.2"`
 
-## Repository traits
+## Traits
+
+### UUID
+Using the `Uuidable` will add to your entity a [Ramsey UUID](https://github.com/ramsey/uuid-doctrine) identity field.
+_Note: This does not handle the [configuration steps](https://github.com/ramsey/uuid-doctrine#configuration) for you._
+
+### Repository traits
 
 In order to gather some behavior une one places, we introduce following repository traits.
 
-###  `PaginableEntityRepository`
+####  `PaginableEntityRepository`
 
 This provides one public method to retrieve a Doctrine `Paginator` object. Below is the signature
 
@@ -26,15 +32,15 @@ This provides one public method to retrieve a Doctrine `Paginator` object. Below
     public function getPaginator(QueryBuilder $qb, int $page = 1, int $maxResults = null)
 ```
 
-Everything is straitforward here.
+Everything is straightforward here.
 
-### `CountableEntityRepository`
+#### `CountableEntityRepository`
 
 This provides a simple method to easily get total query items count.
 
-### `SearchableEntityRepository`
+#### `SearchableEntityRepository`
  
-__Full text search method__
+##### Full text search method
 
 This is useful for example in AJAX actions (in a not-API context) where you need to retrieve a
 list of entity in large term context : classical AJAX search.
