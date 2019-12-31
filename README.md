@@ -3,6 +3,10 @@
 This Symfony bundle provides all necessary bricks needed accross other 
 [LCH](http://compagnie-hyperactive.com) bundles.
 
+## Installation
+
+`composer require lch/components-bundle "^1.2.1"`
+
 ## Repository traits
 
 In order to gather some behavior une one places, we introduce following repository traits.
@@ -29,10 +33,8 @@ Everything is straitforward here.
 This provides a simple method to easily get total query items count.
 
 ### `SearchableEntityRepository`
-
-This provides two methods 
-
-#### Full text search method
+ 
+__Full text search method__
 
 This is useful for example in AJAX actions (in a not-API context) where you need to retrieve a
 list of entity in large term context : classical AJAX search.
@@ -53,5 +55,39 @@ list of entity in large term context : classical AJAX search.
         int $maxResults = null,
         string $language = null
     ): array
+
+```
+
+## Twig
+
+### Macros
+
+#### Simple admin pagination
+
+If using `PaginableEntityRepository` above, you can then __pass pagination object__
+
+```php
+public function list(int $page): Response
+    {
+        // get items before with a repository method returning paginator
+
+        return $this->render('admin/menu/list.html.twig', [
+            'menus' => $menus,
+            'pagination' => [
+                'page' => $page,
+                'nbPages' => ceil($menus->count() / $nbItemsPerPage)
+            ]
+        ]);
+    }
+```
+
+Then in twig you can generate simple pagination component:
+
+```twig
+{% import "@LchComponents/macros/lch-components-utils.html.twig" as lch_utils %}
+
+...
+
+{{ lch_utils.admin_paginate(pagination.page, pagination.nbPages) }}
 
 ```
