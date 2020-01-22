@@ -3,6 +3,7 @@
 namespace Lch\ComponentsBundle\Behavior;
 
 use Doctrine\ORM\QueryBuilder;
+use Lch\TranslateBundle\Model\Interfaces\TranslatableInterface;
 
 /**
  * Trait SearchableEntityRepository
@@ -13,6 +14,7 @@ trait SearchableEntityRepository
 {
     /**
      * Used to search in like mode in entity fields
+     *
      * @param array $fields the fields names wanted to be searched in
      * @param string $term the term to be searched
      * @param int|null $maxResults the batch size, if any.
@@ -41,7 +43,7 @@ trait SearchableEntityRepository
         }
         $qb->setParameter('term', "%$term%");
 
-        if(null !== $maxResults) {
+        if (null !== $maxResults) {
             $qb->setMaxResults($maxResults);
         }
 
@@ -74,6 +76,12 @@ trait SearchableEntityRepository
             ->from($this->getClassName(), 'entity');
 
         foreach ($linkedEntities as $field => $entityData) {
+
+            // Add language is entity translatable
+            if (in_array(TranslatableInterface::class, class_implements($entityData['fqcn']))) {
+                $qb->addSelect("{$field}.language");
+            }
+
             $subFieldName = "{$field}.{$entityData['field']}";
             $qb
                 ->join("entity.{$field}", $field)
@@ -82,7 +90,7 @@ trait SearchableEntityRepository
         }
         $qb->setParameter('term', "%$term%");
 
-        if(null !== $maxResults) {
+        if (null !== $maxResults) {
             $qb->setMaxResults($maxResults);
         }
 
