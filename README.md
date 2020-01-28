@@ -5,7 +5,7 @@ This Symfony bundle provides all necessary bricks needed accross other
 
 ## Installation
 
-`composer require lch/components-bundle "^1.2.6"`
+`composer require lch/components-bundle "^1.2.7"`
 
 ## Traits
 
